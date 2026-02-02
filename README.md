@@ -1,4 +1,4 @@
-# Resume Shortlister AI
+# NLP-Powered Resume Shortlisting System
 
 ## 0.1 Problem Statement
 Build a Streamlit-based AI system where:
