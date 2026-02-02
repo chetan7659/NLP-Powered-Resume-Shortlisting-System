@@ -1,0 +1,5 @@
+Python Executable: C:\Users\cheta\anaconda3\envs\mlproj\python.exe
+Genai File: C:\Users\cheta\anaconda3\envs\mlproj\lib\site-packages\google\generativeai\__init__.py
+Genai Version: Not found
+Genai Attributes: ['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', 'chat', 'chat_async', 'configure', 'count_message_tokens', 'generate_embeddings', 'generate_text', 'get_model', 'list_models', 'types']
+FAILURE: GenerativeModel not found.

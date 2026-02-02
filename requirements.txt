@@ -1,0 +1,13 @@
+streamlit
+pdfplumber
+pymupdf
+python-docx
+# Using conda for spacy to avoid Visual C++ errors
+# spacy==3.7.5
+sentence-transformers
+google-generativeai
+numpy
+pandas
+scikit-learn
+python-dotenv
+# https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1.tar.gz
