@@ -1,15 +1,16 @@
 import re
 import spacy
 
+# Try to load spaCy model with error handling
 try:
     nlp = spacy.load("en_core_web_sm")
 except OSError:
-    # Explicitly warn or handle the missing model
-    print("Warning: en_core_web_sm model not found. Run 'python -m spacy download en_core_web_sm'")
-    # We might want to try to download it here or just fail graciously,
-    # but strictly following the user code, I'll assume they might handle it or I'll just load it.
-    # For robust code, I'll re-raise or let it fail if not found as per strict instructions.
-    raise
+    # If model not found, try to download it
+    import subprocess
+    import sys
+    print("Downloading spaCy model...")
+    subprocess.check_call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load("en_core_web_sm")
 
 
 def extract_experience(jd_text: str) -> int:
