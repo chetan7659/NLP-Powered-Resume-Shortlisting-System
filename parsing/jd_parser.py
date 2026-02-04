@@ -13,8 +13,34 @@ except OSError:
 
 
 def extract_experience(jd_text: str) -> int:
+    """
+    Extract years of experience from text.
+    Handles multiple patterns:
+    - Explicit: "3+ years", "5 years"
+    - Date ranges: "2018-2023", "2020 - 2024"
+    - Present/Current: "2020-present", "2019 - current"
+    """
+    from datetime import datetime
+    
+    # Try explicit "X years" pattern first
     match = re.search(r'(\d+)\s*\+?\s*years?', jd_text.lower())
-    return int(match.group(1)) if match else 0
+    if match:
+        return int(match.group(1))
+    
+    # Try date range pattern (YYYY-YYYY or YYYY - YYYY)
+    date_ranges = re.findall(r'(\d{4})\s*[-–—]\s*(\d{4})', jd_text)
+    if date_ranges:
+        total_years = sum(int(end) - int(start) for start, end in date_ranges)
+        return max(total_years, 0)  # Ensure non-negative
+    
+    # Try "present" or "current" pattern
+    current_match = re.search(r'(\d{4})\s*[-–—]\s*(present|current|now)', jd_text.lower())
+    if current_match:
+        start_year = int(current_match.group(1))
+        current_year = datetime.now().year
+        return max(current_year - start_year, 0)
+    
+    return 0
 
 
 def extract_skills(jd_text: str) -> list:
