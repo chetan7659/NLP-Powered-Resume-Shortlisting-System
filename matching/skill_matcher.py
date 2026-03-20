@@ -3,12 +3,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import streamlit as st
 
-import streamlit as st
-
-# Load the model directly. In a real cold-start scenario, this might take a moment.
-# Caching appropriately in Streamlit app.py will be important later.
 @st.cache_resource
 def load_model():
+    """Load sentence transformer model. Downloads on first run, cached after."""
     return SentenceTransformer("all-MiniLM-L6-v2")
 
 model = load_model()
