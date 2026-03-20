@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+.streamlit/secrets.toml
+.env
+logs/
+*.log
+*.egg-info/
